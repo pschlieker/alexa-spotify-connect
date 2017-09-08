@@ -1,15 +1,11 @@
-# alexa-spotify-connect
+# alexa-spotify-connect-german
 
 ![](resources/icon108.png)
 
-**Control Spotify Connect devices with Alexa**
+**Control Spotify Connect devices with German Alexa**
 
-## Alexa Skill Store
-**UK**: https://www.amazon.co.uk/Lawrence-Thorpe-Connect-Control-Spotify/dp/B074KFNWFD  
-**US**: https://www.amazon.com/Lawrence-Thorpe-Connect-Control-Spotify/dp/B074KFNWFD
-
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+Translation of https://github.com/thorpelawrence/alexa-spotify-connect for German Alexa
+All credit belongs to thorpelawrence
 
 ## License
 [MIT](LICENSE)
