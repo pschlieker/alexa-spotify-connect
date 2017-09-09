@@ -39,14 +39,18 @@ app.intent("AMAZON.HelpIntent", {
 
 app.intent("AMAZON.StopIntent", {
     "slots": {},
-    "utterances": []
+    "utterances": [
+        "stoppen"
+    ]
 }, function (req, res) {
-    return;
+        request.put("https://api.spotify.com/v1/me/player/pause").auth(null, null, true, req.getSession().details.user.accessToken);
 });
 
 app.intent("AMAZON.CancelIntent", {
     "slots": {},
-    "utterances": []
+    "utterances": [
+        "abzubrechen"
+    ]
 }, function (req, res) {
     return;
 });
@@ -54,7 +58,11 @@ app.intent("AMAZON.CancelIntent", {
 app.intent('PlayIntent', {
     "utterances": [
         "spiele",
-        "weiter"
+        "spielen",
+        "weiter",
+        "Musik zu spielen",
+        "Musik anmachen",
+        "wiedergabe"
     ]
 },
     function (req, res) {
@@ -64,8 +72,9 @@ app.intent('PlayIntent', {
 
 app.intent('PauseIntent', {
     "utterances": [
+        "pausieren",
         "pausiere",
-        "stop"
+        "die Musik zu stoppen"
     ]
 },
     function (req, res) {
@@ -75,9 +84,10 @@ app.intent('PauseIntent', {
 
 app.intent('SkipNextIntent', {
     "utterances": [
-        "skip",
-        "next",
-        "nächstes"
+        "nächstes",
+        "das Lied zu überspringen",
+        "das nächste Lied zu spielen",
+        "weiter"
     ]
 },
     function (req, res) {
@@ -88,7 +98,10 @@ app.intent('SkipNextIntent', {
 app.intent('SkipPreviousIntent', {
     "utterances": [
         "letztes",
-        "zurück"
+        "zurück",
+        "das letzte Lied zu spielen",
+        "das letzte Lied nochmal zu spielen",
+        "das letzte Lied zu wiederholen"
     ]
 },
     function (req, res) {
@@ -101,7 +114,10 @@ app.intent('GetDevicesIntent', {
         "geräte",
         "nenne",
         "suche",
-        "finde"
+        "finde",
+        "meine Geräte zu nennen",
+        "alle Geräte zu nennen",
+        "meiner Geräteliste"
     ]
 },
     function (req, res) {
@@ -153,7 +169,8 @@ app.intent('DevicePlayIntent', {
         "DEVICENUMBER": "AMAZON.NUMBER"
     },
     "utterances": [
-        "spiele auf {nummer|gerät|geräte nummer|} {-|DEVICENUMBER}"
+        "spiele auf {nummer|gerät|geräte nummer|} {-|DEVICENUMBER}",
+        "auf {nummer|gerät|geräte nummer|} {-|DEVICENUMBER} zu spielen"
     ]
 },
     function (req, res) {
@@ -226,7 +243,8 @@ app.intent('DeviceTransferIntent', {
         "DEVICENUMBER": "AMAZON.NUMBER"
     },
     "utterances": [
-        "wechsel zu {nummer|gerät|geräte nummer|} {-|DEVICENUMBER}"
+        "wechsel zu {nummer|gerät|geräte nummer|} {-|DEVICENUMBER}",
+        "auf {nummer|gerät|geräte nummer|} {-|DEVICENUMBER} zu wechseln"
     ]
 },
     function (req, res) {
@@ -291,6 +309,7 @@ app.intent('DeviceTransferIntent', {
 app.intent('GetTrackIntent', {
     "utterances": [
         "was läuft gerade",
+        "was {gerade|} läuft", 
         "welches lied {läuft gerade | ist das}"
     ]
 },
